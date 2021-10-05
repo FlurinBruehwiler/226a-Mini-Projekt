@@ -1,14 +1,1 @@
-[
-  {
-    "password": "321",
-    "username": "hen47rik"
-  },
-  {
-    "password": "123",
-    "username": "chingchedekocha"
-  },
-  {
-    "password": "abcdefghijklmnopqrstuvwxyz",
-    "username": "kochadepfff"
-  }
-]
+[{"password":"1234","username":"test2"},{"password":"123","username":"test"},{"password":"321","username":"kocha"}]

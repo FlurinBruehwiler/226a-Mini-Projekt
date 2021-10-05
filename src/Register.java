@@ -29,10 +29,9 @@ public class Register {
     public void writeInput(String[] input) throws IOException, ParseException {
         String path = "users.json";
 
-
         JSONArray userList = new JSONArray();
 
-        readJSONArrayFromFile(path);
+        userList = JSONFileManager.readJSONArrayFromFile(path);
 
         JSONObject userDetails = new JSONObject();
 
@@ -41,45 +40,8 @@ public class Register {
 
         userList.add(userDetails);
 
-        writeJSONArrayToFile(userList, path);
-    }
+        JSONFileManager.writeJSONArrayToFile(userList, path);
 
-    public void writeJSONArrayToFile(JSONArray arrayToSave, String path){
-        try (FileWriter file = new FileWriter(path)) {
-            file.write(arrayToSave.toJSONString());
-            file.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public JSONArray readJSONArrayFromFile(String path){
-        File tempFile = new File(path);
-        boolean exists = tempFile.exists();
-
-        JSONArray readList = new JSONArray();
-
-        if(!exists){
-            return readList;
-        }
-
-        JSONParser jsonParser = new JSONParser();
-        try (FileReader reader = new FileReader(path)) {
-
-            Object obj = jsonParser.parse(reader);
-            readList = (JSONArray) obj;
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        return readList;
+        UserManager.updateUsers();
     }
 }
-
-
-
