@@ -1,7 +1,4 @@
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 import org.json.simple.JSONArray;
@@ -30,12 +27,47 @@ public class Register {
 
     @SuppressWarnings("unchecked")
     public void writeInput(String[] input) throws IOException, ParseException {
+        String path = "users.json";
+
+
         JSONArray userList = new JSONArray();
 
+        readJSONArrayFromFile(path);
+
+        JSONObject userDetails = new JSONObject();
+
+        userDetails.put("username", input[0]);
+        userDetails.put("password", input[1]);
+
+        userList.add(userDetails);
+
+        writeJSONArrayToFile(userList, path);
+    }
+
+    public void writeJSONArrayToFile(JSONArray arrayToSave, String path){
+        try (FileWriter file = new FileWriter(path)) {
+            file.write(arrayToSave.toJSONString());
+            file.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public JSONArray readJSONArrayFromFile(String path){
+        File tempFile = new File(path);
+        boolean exists = tempFile.exists();
+
+        JSONArray readList = new JSONArray();
+
+        if(!exists){
+            return readList;
+        }
+
         JSONParser jsonParser = new JSONParser();
-        try (FileReader reader = new FileReader("users.json")) {
+        try (FileReader reader = new FileReader(path)) {
+
             Object obj = jsonParser.parse(reader);
-            userList = (JSONArray) obj;
+            readList = (JSONArray) obj;
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -44,20 +76,8 @@ public class Register {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        JSONObject userDetails = new JSONObject();
 
-        userDetails.put("username", input[0]);
-        userDetails.put("password", input[1]);
-
-        userList.add(userDetails);
-
-        try (FileWriter file = new FileWriter("users.json")) {
-            //We can write any JSONArray or JSONObject instance to the file
-            file.write(userList.toJSONString());
-            file.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        return readList;
     }
 }
 
