@@ -20,11 +20,16 @@ public class test {
         
         Film film = new Film("James Bond", "2021", "Bond enough said", actors, ratings);
         film.saveToJson();
+
+
+
       /*  Register reg = new Register();
         var temp = reg.getInput();
         reg.writeInput(temp);
-        */
+
         Login log = new Login();
         log.login();
+        */
+
     }
 }
