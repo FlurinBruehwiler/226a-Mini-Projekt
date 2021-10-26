@@ -1,6 +1,7 @@
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -23,6 +24,12 @@ public class Rating{
                     text = value.toString();
             }
         });
+    }
+
+    public Rating(UUID _ID, int _stars, String _text){
+        ID = _ID ;
+        stars = _stars;
+        text = _text;
     }
 
     public void saveToJson(){

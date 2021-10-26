@@ -45,8 +45,12 @@ public class Film {
         });
     }
 
-    public Film(String _Name, String _Release, String _Description, ArrayList<Actor> _actors, ArrayList<Rating> _ratings){
-        
+    public Film(String _name, String _releaseDate, String _description, ArrayList<Actor> _actors, ArrayList<Rating> _ratings){
+        name = _name ;
+        releasadate = _releaseDate;
+        description = _description;
+        actors = _actors;
+        ratings = _ratings;
     }
 
     public void saveToJson(){

@@ -2,6 +2,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -24,6 +25,13 @@ public class Actor {
                     yearOfBirth = value.toString();
             }
         });
+    }
+
+    public Actor(UUID _ID, String _name, String _firstname, String _yearOfBirth){
+        ID = _ID;
+        name = _name ;
+        firstname = _firstname;
+        yearOfBirth = _yearOfBirth;
     }
 
     public void saveToJson(){
