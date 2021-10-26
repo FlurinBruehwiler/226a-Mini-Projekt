@@ -3,39 +3,60 @@ import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.UUID;
 
 public class Storage {
-    ArrayList<Actor> Actors = new ArrayList<>();
-    ArrayList<Rating> Ratings = new ArrayList<>();
-    ArrayList<Film> Films = new ArrayList<>();
+    public static ArrayList<Actor> actors = new ArrayList<>();
+    public static ArrayList<Rating> ratings = new ArrayList<>();
+    public static ArrayList<Film> films = new ArrayList<>();
 
-    void ReadAllActors(){
+    public static void ReadAllActors(){
         JSONArray actorList = JSONFileManager.readJSONArrayFromFile("actors.json");
 
         actorList.forEach(item -> {
             JSONObject JSONActor = (JSONObject) item;
             Actor newActor = new Actor(JSONActor);
-            Actors.add(newActor);
+            actors.add(newActor);
         });
     }
 
-    void ReadAllRatings(){
+    public static void ReadAllRatings(){
         JSONArray ratingList = JSONFileManager.readJSONArrayFromFile("ratings.json");
 
         ratingList.forEach(item -> {
             JSONObject JSONRating = (JSONObject) item;
             Rating newRating = new Rating(JSONRating);
-            Ratings.add(newRating);
+            ratings.add(newRating);
         });
     }
 
-    void ReadAllFilms(){
+    public static void ReadAllFilms(){
         JSONArray filmList = JSONFileManager.readJSONArrayFromFile("films.json");
 
         filmList.forEach(item -> {
             JSONObject JSONFilm = (JSONObject) item;
             Film newFilm = new Film(JSONFilm);
-            Films.add(newFilm);
+            films.add(newFilm);
         });
+    }
+
+    public static Actor getActorbyId(UUID id){
+        for (Actor actor: actors) {
+            if(actor.ID.equals(id)){
+                return actor;
+            }
+        }
+
+        return null;
+    }
+
+    public static Rating getRatingbyId(UUID id){
+        for (Rating rating: ratings) {
+            if(rating.ID.equals(id)){
+                return rating;
+            }
+        }
+
+        return null;
     }
 }
