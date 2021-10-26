@@ -7,20 +7,33 @@ import org.json.simple.JSONObject;
 
 public class Film {
     
-    String Name;
-    String Releasadate;
-    String Description;
+    String name;
+    String releasadate;
+    String description;
     ArrayList<Actor> actors;
-    float avgrating;
     ArrayList<Rating> ratings;
 
+    float avgrating;
+
+
+    public Film(JSONObject film){
+        film.forEach((k,v) -> {
+            switch (k.toString()){
+                case "name":
+                    name = v.toString();
+                case "releasedate":
+                    releasadate = v.toString();
+                case "description":
+                    description = v.toString();
+                case "actors":
+
+            }
+
+            System.out.println(k.toString() + ":" + v.toString());
+        });
+    }
 
     public Film(String _Name, String _Release, String _Description, ArrayList<Actor> _actors, ArrayList<Rating> _ratings){
-        Name = _Name;
-        Releasadate = _Release;
-        Description = _Description;
-        actors = _actors;
-        ratings = _ratings;
 
     }
 
