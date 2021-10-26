@@ -46,7 +46,7 @@ public class Film {
         for (Rating rating : ratings) {
             UUIDsOfRatings += "," + rating.ID;
         }
-        userDetailsHashMap.put("actors", UUIDsOfRatings);
+        userDetailsHashMap.put("ratings", UUIDsOfRatings);
 
         JSONObject userDetails = new JSONObject(userDetailsHashMap);
         userList.add(userDetails);
