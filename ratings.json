@@ -1,17 +1,12 @@
 [
   {
-    "id": "76e0f13d-fe08-45ac-b1b3-4a20bbe6d47a",
+    "id": "a100a3d5-8f27-45fc-901b-e3c332b43419",
     "text": "Ein sehr guter Film, welcher mich satifiziert hat",
-    "starts": "4"
+    "stars": "4"
   },
   {
-    "id": "c8f9b921-c000-4e50-92d5-cf87fbd75e4d",
+    "id": "26ee2e3e-b2ec-469d-81ba-b2f543827a08",
     "text": "James Bond, schlecht wie immer",
-    "starts": "1"
-  },
-  {
-    "id": "c8f9b921-c000-4e50-92d5-cf87fbd75e4d",
-    "text": "James Bond, schlecht wie immer",
-    "starts": "1"
+    "stars": "1"
   }
 ]

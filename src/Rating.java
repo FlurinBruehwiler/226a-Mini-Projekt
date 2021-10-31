@@ -1,10 +1,7 @@
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.UUID;
-
 import java.util.UUID;
 
 public class Rating{
@@ -18,10 +15,13 @@ public class Rating{
             switch (key.toString()){
                 case "id":
                     ID = UUID.fromString(value.toString());
+                    break;
                 case "stars":
                     stars = Integer.parseInt(value.toString());
+                    break;
                 case "text":
                     text = value.toString();
+                    break;
             }
         });
     }

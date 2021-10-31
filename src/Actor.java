@@ -1,8 +1,6 @@
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -17,12 +15,16 @@ public class Actor {
             switch (key.toString()){
                 case "id":
                     ID = UUID.fromString(value.toString());
+                    break;
                 case "name":
                     name = value.toString();
+                    break;
                 case "firstname":
                     firstname = value.toString();
+                    break;
                 case "age":
                     yearOfBirth = value.toString();
+                    break;
             }
         });
     }

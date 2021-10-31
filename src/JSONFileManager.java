@@ -20,7 +20,14 @@ public class JSONFileManager {
      * @return
      */
     public static JSONArray readJSONArrayFromFile(String path){
+
+
         File tempFile = new File(path);
+
+        if(tempFile.length() == 0){
+            return new JSONArray();
+        }
+
         boolean exists = tempFile.exists();
 
         JSONArray readList = new JSONArray();

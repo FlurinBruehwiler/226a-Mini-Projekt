@@ -1,17 +1,17 @@
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 
 public class Film {
     
     String name;
     String releasadate;
     String description;
-    ArrayList<Actor> actors;
-    ArrayList<Rating> ratings;
+    ArrayList<Actor> actors = new ArrayList<>();
+    ArrayList<Rating> ratings =  new ArrayList<>();
 
     float avgrating;
 
@@ -21,28 +21,45 @@ public class Film {
             switch (k.toString()){
                 case "name":
                     name = v.toString();
+                    break;
                 case "releasedate":
                     releasadate = v.toString();
+                    break;
                 case "description":
                     description = v.toString();
+                    break;
                 case "actors":
                     String[] actorsID = v.toString().split(",");
                     for (String actorId:actorsID) {
                         Actor foundActor = Storage.getActorbyId(UUID.fromString(actorId));
                         if(foundActor != null){
                             actors.add(foundActor);
+                        }else{
+                            System.out.println("Actor not found with UUID: " + actorId);
                         }
                     }
+                    break;
                 case "ratings":
                     String[] ratingsID = v.toString().split(",");
                     for (String ratingId:ratingsID) {
                         Rating foundRating = Storage.getRatingbyId(UUID.fromString(ratingId));
                         if(foundRating != null){
                             ratings.add(foundRating);
+                        } else{
+                            System.out.println("Rating not found with UUID: " + ratingId);
                         }
                     }
+                    break;
             }
         });
+    }
+
+    public float getAverageRating(){
+        int sum = 0;
+        for(Rating rating: ratings){
+            sum += rating.stars;
+        }
+        return (float)sum / ratings.size();
     }
 
     public Film(String _name, String _releaseDate, String _description, ArrayList<Actor> _actors, ArrayList<Rating> _ratings){

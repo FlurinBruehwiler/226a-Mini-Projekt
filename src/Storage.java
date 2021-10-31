@@ -2,13 +2,19 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.UUID;
 
 public class Storage {
     public static ArrayList<Actor> actors = new ArrayList<>();
     public static ArrayList<Rating> ratings = new ArrayList<>();
     public static ArrayList<Film> films = new ArrayList<>();
+
+    public static void ReadAllObjects(){
+        ReadAllActors();
+        ReadAllRatings();
+        ReadAllFilms();
+
+    }
 
     public static void ReadAllActors(){
         JSONArray actorList = JSONFileManager.readJSONArrayFromFile("actors.json");

@@ -1,8 +1,14 @@
 [
   {
-    "name": "Craig",
     "firstname": "Daniel",
-    "id": "d84c774b-752a-4075-990b-532df0a5f39e",
+    "name": "Craig",
+    "id": "d74e0234-8ffd-4152-98a1-522fa4d6a00a",
     "yearOfBirth": "1968"
+  },
+  {
+    "name": "Seydoux",
+    "firstname": "Lea",
+    "id": "c57d21fd-d2aa-42df-87c4-34f9348c48ea",
+    "yearOfBirth": "1985"
   }
 ]
