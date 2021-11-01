@@ -1,12 +1,1 @@
-[
-  {
-    "id": "a100a3d5-8f27-45fc-901b-e3c332b43419",
-    "text": "Ein sehr guter Film, welcher mich satifiziert hat",
-    "stars": "4"
-  },
-  {
-    "id": "26ee2e3e-b2ec-469d-81ba-b2f543827a08",
-    "text": "James Bond, schlecht wie immer",
-    "stars": "1"
-  }
-]
+[{"id":"a100a3d5-8f27-45fc-901b-e3c332b43419","text":"Ein sehr guter Film, welcher mich satifiziert hat","stars":"4"},{"id":"26ee2e3e-b2ec-469d-81ba-b2f543827a08","text":"James Bond, schlecht wie immer","stars":"1"},{"id":"e7bc7141-c9c6-413f-899e-a6e151c09887","stars":"5","text":"very very very geil"},{"id":"bd562b9f-2ff2-44e5-8ec6-2c1130e87208","stars":"100","text":"i felt asleep while watching this film"},{"id":"1a604966-dedb-4471-8c06-31bb29cc0285","stars":"3","text":"test123"},{"id":"2969c1db-7631-4c35-bc0a-141105d8a2c0","stars":"1","text":"another test because we need it"}]

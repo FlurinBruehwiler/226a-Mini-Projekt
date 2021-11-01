@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class Film{
+public class Film extends TypeDefinition{
 
     UUID ID;
     String name;
@@ -81,6 +81,8 @@ public class Film{
         JSONArray filmList = new JSONArray();
 
         filmList = JSONFileManager.readJSONArrayFromFile(path);
+
+        filmList = removeTdFromList(filmList, ID);
 
         HashMap<String,String> filmDetailsHashMap = new HashMap<String,String>();
         filmDetailsHashMap.put("id", ID.toString());
