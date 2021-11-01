@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
+import java.util.UUID;
 
 public class Homepage {
     public static void showPage() {
@@ -32,11 +33,28 @@ public class Homepage {
                     Printer.printObjects(Storage.films.get(Integer.parseInt(filmInput)).ratings);
                     break;
                 case "2":
+                    createRating(Storage.films.get(Integer.parseInt(filmInput)));
                     break;
                 case "m":
                     break;
             }
         }
+    }
+
+    public static void createRating(Film film){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("--------------------------");
+        System.out.println("Create Rating");
+        System.out.print("Stars: ");
+        int stars = scanner.nextInt();
+        System.out.print("Comment (optional): ");
+        Scanner scanner2 = new Scanner(System.in);
+        String text = scanner2.nextLine();
+        Rating newRating = new Rating(UUID.randomUUID(), stars, text);
+        Storage.ratings.add(newRating);
+        film.ratings.add(newRating);
+        newRating.saveToJson();
+        film.saveToJson();
     }
 
     public static ArrayList<Film> getFilmsWithActor(Actor actor){

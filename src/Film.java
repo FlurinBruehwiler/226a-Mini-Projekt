@@ -6,7 +6,8 @@ import java.util.HashMap;
 import java.util.UUID;
 
 public class Film{
-    
+
+    UUID ID;
     String name;
     String releasadate;
     String description;
@@ -19,6 +20,9 @@ public class Film{
     public Film(JSONObject film){
         film.forEach((k,v) -> {
             switch (k.toString()){
+                case "id":
+                    ID = UUID.fromString(v.toString());
+                    break;
                 case "name":
                     name = v.toString();
                     break;
@@ -62,7 +66,8 @@ public class Film{
         return (float)sum / ratings.size();
     }
 
-    public Film(String _name, String _releaseDate, String _description, ArrayList<Actor> _actors, ArrayList<Rating> _ratings){
+    public Film(UUID _ID, String _name, String _releaseDate, String _description, ArrayList<Actor> _actors, ArrayList<Rating> _ratings){
+        ID = _ID ;
         name = _name ;
         releasadate = _releaseDate;
         description = _description;
@@ -78,6 +83,7 @@ public class Film{
         filmList = JSONFileManager.readJSONArrayFromFile(path);
 
         HashMap<String,String> filmDetailsHashMap = new HashMap<String,String>();
+        filmDetailsHashMap.put("id", ID.toString());
         filmDetailsHashMap.put("name", name);
         filmDetailsHashMap.put("releasedate", releasadate);
         filmDetailsHashMap.put("description", description);

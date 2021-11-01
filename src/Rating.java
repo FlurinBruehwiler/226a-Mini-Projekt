@@ -41,7 +41,7 @@ public class Rating{
 
         HashMap<String,String> ratingDetailsHashMap = new HashMap<String,String>();
         ratingDetailsHashMap.put("id", ID.toString());
-        ratingDetailsHashMap.put("starts", String.valueOf(stars));
+        ratingDetailsHashMap.put("stars", String.valueOf(stars));
         ratingDetailsHashMap.put("text", text);
 
         JSONObject userDetails = new JSONObject(ratingDetailsHashMap);
