@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class Film {
+public class Film{
     
     String name;
     String releasadate;

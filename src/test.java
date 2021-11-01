@@ -27,8 +27,8 @@ public class test {
 
         Storage.ReadAllObjects();
 
-        Homepage homepage = new Homepage();
-        homepage.showPage();
+
+        Homepage.showPage();
 
       /*  Register reg = new Register();
         var temp = reg.getInput();

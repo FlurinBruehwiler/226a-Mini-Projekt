@@ -4,7 +4,7 @@ import org.json.simple.JSONObject;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class Actor {
+public class Actor{
     UUID ID;
     String name;
     String firstname;
@@ -22,7 +22,7 @@ public class Actor {
                 case "firstname":
                     firstname = value.toString();
                     break;
-                case "age":
+                case "yearOfBirth":
                     yearOfBirth = value.toString();
                     break;
             }
