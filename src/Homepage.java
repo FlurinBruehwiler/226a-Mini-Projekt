@@ -1,8 +1,9 @@
 import java.util.*;
 
 public class Homepage {
+    
     public static void showPage() {
-        while(true){
+        while (true) {
             Scanner scanner = new Scanner(System.in);
             System.out.println("-------------------------");
             System.out.println("Films");
@@ -11,7 +12,25 @@ public class Homepage {
             Printer.printObjectNames(Storage.films, true);
 
             //Choose Film
-            int filmInput = scanner.nextInt();
+            int filmInput = 0;
+            while (true) {
+                System.out.print("Film to inspect (-1 to quit): ");
+                Scanner filmScanner = new Scanner(System.in);
+                try {
+                    filmInput = filmScanner.nextInt();
+                    if (filmInput > Storage.films.size() - 1) {
+                        throw new InputMismatchException();
+                    }
+                    break;
+
+                } catch (InputMismatchException e) {
+                    System.out.println("Please enter a number that corresponds to a film");
+                }
+            }
+
+            if (filmInput == -1) {
+                System.exit(0);
+            }
 
             Film film = Storage.films.get(filmInput);
 
@@ -26,40 +45,53 @@ public class Homepage {
             System.out.println("2: Create rating");
             System.out.println("3: Go back to film list");
 
-            int filmMenu = scanner.nextInt();
+            int filmMenu = 0;
+            while (true) {
+                Scanner filmScanner = new Scanner(System.in);
+                try {
+                    filmMenu = filmScanner.nextInt();
+                    if (filmMenu > 3) {
+                        throw new InputMismatchException();
+                    }
+                    break;
 
-            switch (filmMenu){
-                case "0":
+                } catch (InputMismatchException e) {
+                    System.out.println("Please enter number");
+                }
+            }
+
+            switch (filmMenu) {
+                case 0:
                     Printer.printObjects(film.getActors());
                     break;
-                case "1":
+                case 1:
                     Printer.printObjects(film.getRatings());
                     break;
-                case "2":
+                case 2:
                     createRating(film);
                     break;
-                case "3":
+                case 3:
                     break;
             }
         }
     }
 
-    public static void createRating(Film film){
+    public static void createRating(Film film) {
 
         System.out.println("--------------------------");
         System.out.println("Create rating");
         int stars = 0;
-        while(true){
+        while (true) {
             System.out.print("Stars: ");
             Scanner scanner = new Scanner(System.in);
-            try{
+            try {
                 stars = scanner.nextInt();
-                if(stars < 1 || stars > 5){
+                if (stars < 1 || stars > 5) {
                     throw new InputMismatchException();
                 }
                 break;
 
-            }catch (InputMismatchException e){
+            } catch (InputMismatchException e) {
                 System.out.println("Please enter a number between 0 and 5");
             }
         }
@@ -74,10 +106,10 @@ public class Homepage {
         film.saveToJson();
     }
 
-    public static ArrayList<Film> getFilmsWithActor(Actor actor){
+    public static ArrayList<Film> getFilmsWithActor(Actor actor) {
         ArrayList<Film> films = new ArrayList<>();
-        for(Film film : Storage.films){
-            if(film.getActors().contains(actor)) {
+        for (Film film : Storage.films) {
+            if (film.getActors().contains(actor)) {
                 films.add(film);
             }
         }
