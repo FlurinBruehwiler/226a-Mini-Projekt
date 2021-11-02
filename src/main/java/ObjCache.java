@@ -24,7 +24,7 @@ public class ObjCache {
     }
 
     public static void ReadAllUsers(){
-        JSONArray userList = JSONFileManager.readJSONArrayFromFile("users.json");
+        JSONArray userList = JSONFileManager.readJSONArrayFromFile("JSONStorage/users.json");
 
         userList.forEach(item -> {
             JSONObject JSONUser = (JSONObject) item;
@@ -34,7 +34,7 @@ public class ObjCache {
     }
 
     public static void ReadAllActors(){
-        JSONArray actorList = JSONFileManager.readJSONArrayFromFile("actors.json");
+        JSONArray actorList = JSONFileManager.readJSONArrayFromFile("JSONStorage/actors.json");
 
         actorList.forEach(item -> {
             JSONObject JSONActor = (JSONObject) item;
@@ -44,7 +44,7 @@ public class ObjCache {
     }
 
     public static void ReadAllRatings(){
-        JSONArray ratingList = JSONFileManager.readJSONArrayFromFile("ratings.json");
+        JSONArray ratingList = JSONFileManager.readJSONArrayFromFile("JSONStorage/ratings.json");
 
         ratingList.forEach(item -> {
             JSONObject JSONRating = (JSONObject) item;
@@ -54,7 +54,7 @@ public class ObjCache {
     }
 
     public static void ReadAllFilms(){
-        JSONArray filmList = JSONFileManager.readJSONArrayFromFile("films.json");
+        JSONArray filmList = JSONFileManager.readJSONArrayFromFile("JSONStorage/films.json");
 
         filmList.forEach(item -> {
             JSONObject JSONFilm = (JSONObject) item;

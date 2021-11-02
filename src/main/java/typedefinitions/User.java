@@ -19,8 +19,12 @@ public class User extends TypeDefinition {
         return password;
     }
 
-    public User(JSONObject rating){
-        rating.forEach((key,value) -> {
+    /**
+     * Constructor for the case that you want to convert a JSONObject to a user
+     * @param user
+     */
+    public User(JSONObject user){
+        user.forEach((key,value) -> {
             switch (key.toString()){
                 case "id":
                     ID = UUID.fromString(value.toString());
@@ -35,14 +39,22 @@ public class User extends TypeDefinition {
         });
     }
 
+    /**
+     * Constructor for the case that you want to create a user from scratch (Register)
+     * @param _username
+     * @param _password
+     */
     public User(String _username, String _password){
         ID = UUID.randomUUID();
         username = _username;
         password = _password;
     }
 
+    /**
+     * Description: Saves to the respective JSON file
+     */
     public void saveToJson(){
-        String path = "users.json";
+        String path = "JSONStorage/users.json";
 
         JSONArray userList = new JSONArray();
 

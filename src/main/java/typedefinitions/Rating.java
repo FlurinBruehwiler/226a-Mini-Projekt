@@ -19,6 +19,10 @@ public class Rating extends TypeDefinition {
         return text;
     }
 
+    /**
+     * Constructor for the case that you want to convert a JSONObject to a rating
+     * @param rating
+     */
     public Rating(JSONObject rating){
         rating.forEach((key,value) -> {
             switch (key.toString()){
@@ -35,14 +39,22 @@ public class Rating extends TypeDefinition {
         });
     }
 
+    /**
+     * Constructor for the case that you want to create a rating from scratch (Create Rating Menu)
+     * @param _stars
+     * @param _text
+     */
     public Rating(int _stars, String _text){
         ID = UUID.randomUUID();
         stars = _stars;
         text = _text;
     }
 
+    /**
+     * Description: Saves to the respective JSON file
+     */
     public void saveToJson(){
-        String path = "ratings.json";
+        String path = "JSONStorage/ratings.json";
 
         JSONArray ratingList = new JSONArray();
 

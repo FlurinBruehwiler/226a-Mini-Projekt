@@ -29,7 +29,7 @@ public class Homepage {
             Film film = ObjCache.films.get(filmInput);
 
             System.out.println("----------------------------");
-            System.out.println("main.java.typedefinitions.Film");
+            System.out.println("Film");
             Printer.printFilm(film);
 
             System.out.println("----------------------------");

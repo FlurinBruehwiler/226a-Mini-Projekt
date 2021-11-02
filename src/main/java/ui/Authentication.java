@@ -6,22 +6,22 @@ import main.java.typedefinitions.User;
 import java.util.Scanner;
 
 public class Authentication {
-    public static boolean authentificate(){
+    public static void authentificate(){
         while(true){
-            System.out.println("0: main.java.Login");
+            System.out.println("0: Login");
             System.out.println("1: Register");
             Scanner scanner = new Scanner(System.in);
             int loginOrRegister = scanner.nextInt();
             switch(loginOrRegister){
                 case 0:
                     if(login()){
-                        return true;
+                        return;
                     }
                     break;
 
                 case 1:
                     register();
-                    return true;
+                    return;
             }
         }
     }
@@ -36,7 +36,7 @@ public class Authentication {
                     newUser.saveToJson();
                     return true;
                 }
-                System.out.println("main.java.typedefinitions.User with username " + input[0] + " does already exist");
+                System.out.println("User with username " + input[0] + " does already exist");
             }else{
                 System.out.println("Passwords do not match");
             }
@@ -59,7 +59,7 @@ public class Authentication {
                 if(user.getUsername().equals(input[0])){
                     if(user.getPassword().equals(input[1])){
                         System.out.println("-------------------------");
-                        System.out.println("main.java.Login successful");
+                        System.out.println("Login successful");
                         return true;
                     }
                 }
@@ -73,12 +73,11 @@ public class Authentication {
                 return false;
             }
         }
-
     }
 
     public static String[] getRegisterInput() {
         System.out.println("-------------------------");
-        System.out.println("Regiser");
+        System.out.println("Register");
 
         String[] output = new String[3];
 
@@ -95,7 +94,7 @@ public class Authentication {
 
     public static String[] getLoginInput(){
         System.out.println("--------------------------");
-        System.out.println("main.java.Login");
+        System.out.println("Login");
 
         String[] output = new String[2];
 

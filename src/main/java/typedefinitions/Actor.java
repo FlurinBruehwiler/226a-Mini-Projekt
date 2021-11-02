@@ -24,6 +24,10 @@ public class Actor extends TypeDefinition {
         return yearOfBirth;
     }
 
+    /**
+     * Constructor for the case that you want to convert a JSONObject to an actor
+     * @param actor
+     */
     public Actor(JSONObject actor){
         actor.forEach((key,value) -> {
             switch (key.toString()){
@@ -43,6 +47,12 @@ public class Actor extends TypeDefinition {
         });
     }
 
+    /**
+     * Constructor for the case that you want to create an actor from scratch
+     * @param _name
+     * @param _firstname
+     * @param _yearOfBirth
+     */
     public Actor(String _name, String _firstname, String _yearOfBirth){
         ID = UUID.randomUUID();
         name = _name ;
@@ -50,11 +60,13 @@ public class Actor extends TypeDefinition {
         yearOfBirth = _yearOfBirth;
     }
 
+    /**
+     * Description: Saves to the respective JSON file
+     */
     public void saveToJson(){
-        String path = "actors.json";
+        String path = "JSONStorage/actors.json";
 
         JSONArray actorList = new JSONArray();
-
 
         actorList = JSONFileManager.readJSONArrayFromFile(path);
 

@@ -36,6 +36,10 @@ public class Film extends TypeDefinition {
         return ratings;
     }
 
+    /**
+     * Constructor for the case that you want to convert a JSONObject to a film
+     * @param film
+     */
     public Film(JSONObject film){
         film.forEach((k,v) -> {
             switch (k.toString()){
@@ -77,15 +81,14 @@ public class Film extends TypeDefinition {
         });
     }
 
-    public float getAverageRating(){
-        int sum = 0;
-        for(Rating rating: ratings){
-            sum += rating.getStars();
-        }
-
-        return (float)sum / ratings.size();
-    }
-
+    /**
+     * Constructor for the case that you want to create a film from scratch
+     * @param _name
+     * @param _releaseDate
+     * @param _description
+     * @param _actors
+     * @param _ratings
+     */
     public Film(String _name, String _releaseDate, String _description, ArrayList<Actor> _actors, ArrayList<Rating> _ratings){
         ID = UUID.randomUUID();
         name = _name ;
@@ -95,8 +98,24 @@ public class Film extends TypeDefinition {
         ratings = _ratings;
     }
 
+    /**
+     * Gets the average rating of the film
+     * @return
+     */
+    public float getAverageRating(){
+        int sum = 0;
+        for(Rating rating: ratings){
+            sum += rating.getStars();
+        }
+
+        return (float)sum / ratings.size();
+    }
+
+    /**
+     * Description: Saves to the respective JSON file
+     */
     public void saveToJson(){
-        String path = "films.json";
+        String path = "JSONStorage/films.json";
 
         JSONArray filmList = new JSONArray();
 
