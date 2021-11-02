@@ -7,7 +7,11 @@ import main.java.typedefinitions.Rating;
 import java.util.ArrayList;
 
 public class Printer {
-    //print single objects
+
+    /**
+     * Description: Prints the details of a film
+     * @param film
+     */
     public static void printFilm(Film film){
         System.out.println("Name: " + film.getName());
         System.out.println("Release Date: " + film.getReleasadate());
@@ -19,6 +23,10 @@ public class Printer {
         System.out.println("Average main.java.typedefinitions.Rating: " + film.getAverageRating());
     }
 
+    /**
+     * Description: Prints the details of a rating
+     * @param rating
+     */
     public static void printRating(Rating rating){
         System.out.println("Stars: " + rating.getStars());
         if(rating.getText() != ""){
@@ -26,13 +34,21 @@ public class Printer {
         }
     }
 
+    /**
+     * Description: Prints the details of an actor
+     * @param actor
+     */
     public static void printActor(Actor actor){
         System.out.println(actor.getFirstname() + " " + actor.getName());
         System.out.println("Year of Birth " + actor.getYearOfBirth());
         printObjectNames(Homepage.getFilmsWithActor(actor), false);
     }
 
-    //list Objects
+    /**
+     * Description: Prints a list of Objects
+     * @param typeDefinitions
+     * @param <T>
+     */
     public static <T> void printObjects(ArrayList<T> typeDefinitions){
         typeDefinitions.forEach(td -> {
             if(td instanceof Rating){
@@ -48,6 +64,12 @@ public class Printer {
         });
     }
 
+    /**
+     * Description: Prints only the names of a list of Object, either in a numbered list or seperated by commas
+     * @param typeDefinitions
+     * @param inList
+     * @param <T>
+     */
     public static <T> void printObjectNames(ArrayList<T> typeDefinitions, Boolean inList){
         if(inList){
             for(int i = 0; i < typeDefinitions.size(); i++){

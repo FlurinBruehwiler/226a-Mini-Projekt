@@ -6,6 +6,10 @@ import main.java.typedefinitions.User;
 import java.util.Scanner;
 
 public class Authentication {
+
+    /**
+     * Description: The user chooses if he wants to login or register
+     */
     public static void authentificate(){
         while(true){
             System.out.println("0: Login");
@@ -26,6 +30,10 @@ public class Authentication {
         }
     }
 
+    /**
+     * Description: Register Dialog
+     * @return
+     */
     private static boolean register(){
         while (true){
             String[] input = getRegisterInput();
@@ -43,6 +51,11 @@ public class Authentication {
         }
     }
 
+    /**
+     * Description: Returns true if the user already exists
+     * @param username
+     * @return
+     */
     private static boolean userAlreadyExists(String username){
         for (User user : ObjCache.users){
             if(user.getUsername().equals(username)){
@@ -52,6 +65,10 @@ public class Authentication {
         return false;
     }
 
+    /**
+     * Description: Login dialog
+     * @return
+     */
     private static boolean login(){
         while(true){
             String[] input = getLoginInput();
@@ -75,6 +92,10 @@ public class Authentication {
         }
     }
 
+    /**
+     * Description: Gets the input for registration
+     * @return
+     */
     public static String[] getRegisterInput() {
         System.out.println("-------------------------");
         System.out.println("Register");
@@ -92,6 +113,10 @@ public class Authentication {
         return output;
     }
 
+    /**
+     * Description: Gets the input for login
+     * @return
+     */
     public static String[] getLoginInput(){
         System.out.println("--------------------------");
         System.out.println("Login");

@@ -7,6 +7,12 @@ import org.json.simple.parser.ParseException;
 import java.io.*;
 
 public class JSONFileManager {
+
+    /**
+     * Description Writes a JSONArray to a JSON file
+     * @param arrayToSave
+     * @param path
+     */
     public static void writeJSONArrayToFile(JSONArray arrayToSave, String path){
         try (FileWriter file = new FileWriter(path)) {
             file.write(arrayToSave.toJSONString());
@@ -17,7 +23,7 @@ public class JSONFileManager {
     }
 
     /**
-     *
+     * Description: Reads a JSONArray from a File
      * @param path
      * @return
      */

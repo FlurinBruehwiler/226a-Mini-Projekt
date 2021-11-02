@@ -10,6 +10,9 @@ import java.util.*;
 
 public class Homepage {
 
+    /**
+     * Description: The main frontend method, user can choose a film, and perform an action on the film
+     */
     public static void showPage() {
         while (true) {
             Scanner scanner = new Scanner(System.in);
@@ -57,6 +60,10 @@ public class Homepage {
         }
     }
 
+    /**
+     * Description: The user can create a rating
+     * @param film
+     */
     public static void createRating(Film film) {
 
         System.out.println("--------------------------");
@@ -73,6 +80,11 @@ public class Homepage {
         film.saveToJson();
     }
 
+    /**
+     * Description: Gets a list with all the films an actor occurs in
+     * @param actor
+     * @return
+     */
     public static ArrayList<Film> getFilmsWithActor(Actor actor) {
         ArrayList<Film> films = new ArrayList<>();
         for (Film film : ObjCache.films) {

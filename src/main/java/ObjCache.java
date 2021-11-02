@@ -16,6 +16,9 @@ public class ObjCache {
     public static ArrayList<Film> films = new ArrayList<>();
     public static ArrayList<User> users = new ArrayList<>();
 
+    /**
+     * Description: Reads all objects from the JSON files and creates the objects
+     */
     public static void ReadAllObjects(){
         ReadAllActors();
         ReadAllRatings();
@@ -23,6 +26,9 @@ public class ObjCache {
         ReadAllUsers();
     }
 
+    /**
+     *  Description: Reads all users from the JSON file and creates the users
+     */
     public static void ReadAllUsers(){
         JSONArray userList = JSONFileManager.readJSONArrayFromFile("JSONStorage/users.json");
 
@@ -33,6 +39,9 @@ public class ObjCache {
         });
     }
 
+    /**
+     *  Description: Reads all actors from the JSON file and creates the actors
+     */
     public static void ReadAllActors(){
         JSONArray actorList = JSONFileManager.readJSONArrayFromFile("JSONStorage/actors.json");
 
@@ -43,6 +52,9 @@ public class ObjCache {
         });
     }
 
+    /**
+     *  Description: Reads all ratings from the JSON file and creates the ratings
+     */
     public static void ReadAllRatings(){
         JSONArray ratingList = JSONFileManager.readJSONArrayFromFile("JSONStorage/ratings.json");
 
@@ -53,6 +65,9 @@ public class ObjCache {
         });
     }
 
+    /**
+     *  Description: Reads all films from the JSON file and creates the films
+     */
     public static void ReadAllFilms(){
         JSONArray filmList = JSONFileManager.readJSONArrayFromFile("JSONStorage/films.json");
 
@@ -63,6 +78,9 @@ public class ObjCache {
         });
     }
 
+    /**
+     *  Description: Gets the actor with a specific UUID
+     */
     public static Actor getActorbyId(UUID id){
         for (Actor actor: actors) {
             if(actor.ID.equals(id)){
@@ -73,6 +91,9 @@ public class ObjCache {
         return null;
     }
 
+    /**
+     *  Description: Gets the rating with a specific UUID
+     */
     public static Rating getRatingbyId(UUID id){
         for (Rating rating: ratings) {
             if(rating.ID.equals(id)){

@@ -19,12 +19,14 @@ public class ValidateInput {
                 filmInput = scanner.nextInt();
                 //throw exception if the film does not exist
                 if (filmInput > ObjCache.films.size() - 1 || filmInput < -1) {
-                    throw new InputMismatchException();
+                    throw new InvalidInputException(-1, ObjCache.films.size() - 1);
                 }
                 break;
 
-            } catch (InputMismatchException e) {
-                System.out.println("Please enter a number that corresponds to a film");
+            } catch (InvalidInputException e) {
+                System.out.println(e);
+            }catch (InputMismatchException e){
+                System.out.println("Please enter a number");
             }
         }
         return filmInput;
@@ -44,12 +46,14 @@ public class ValidateInput {
 
                 //throw exception if the menu point does not exist
                 if (filmMenu > 3 || filmMenu < 0) {
-                    throw new InputMismatchException();
+                    throw new InvalidInputException(0,3);
                 }
                 break;
 
-            } catch (InputMismatchException e) {
-                System.out.println("Please enter number");
+            } catch (InvalidInputException e) {
+                System.out.println(e);
+            }catch (InputMismatchException e){
+                System.out.println("Please enter a number");
             }
         }
         return filmMenu;
@@ -70,14 +74,43 @@ public class ValidateInput {
 
                 //throw exception if the user enters an incorrect amount of stars
                 if (stars < 1 || stars > 5) {
-                    throw new InputMismatchException();
+                    throw new InvalidInputException(1,5);
                 }
                 break;
 
-            } catch (InputMismatchException e) {
-                System.out.println("Please enter a number between 0 and 5");
+            } catch (InvalidInputException e) {
+                System.out.println(e);
+            }catch (InputMismatchException e){
+                System.out.println("Please enter a number");
             }
         }
         return stars;
+    }
+
+    /**
+     * Description: Gets the input when the user chooses if he wants to login or register
+     */
+    public static int getLoginOrRegisterInput(){
+        int input = 0;
+
+        //repeat until the user enters a valid input
+        while (true) {
+            Scanner scanner = new Scanner(System.in);
+            try {
+                input = scanner.nextInt();
+
+                //throw exception if the users chooses a menu point that does not exist
+                if (input < 1 || input > 2) {
+                    throw new InvalidInputException(1,2);
+                }
+                break;
+
+            } catch (InvalidInputException e) {
+                System.out.println(e);
+            }catch (InputMismatchException e){
+                System.out.println("Please enter a number");
+            }
+        }
+        return input;
     }
 }
