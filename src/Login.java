@@ -12,13 +12,11 @@ public class Login {
         System.out.println(result);
 
     }
-
-
     public boolean checkInput(String[] input){
         for (User user: UserManager.users) {
 
-            String username = user.username;
-            String password = user.password;
+            String username = user.getUsername();
+            String password = user.getPassword();
 
             if(input[0].equals(username) && input[1].equals(password)){
                 return true;
@@ -37,7 +35,5 @@ public class Login {
         output[1] = scanner.nextLine();
 
         return output;
-
-
     }
 }

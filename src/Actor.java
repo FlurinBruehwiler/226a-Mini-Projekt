@@ -40,8 +40,8 @@ public class Actor extends TypeDefinition{
         });
     }
 
-    public Actor(UUID _ID, String _name, String _firstname, String _yearOfBirth){
-        ID = _ID;
+    public Actor(String _name, String _firstname, String _yearOfBirth){
+        ID = UUID.randomUUID();
         name = _name ;
         firstname = _firstname;
         yearOfBirth = _yearOfBirth;
@@ -63,9 +63,7 @@ public class Actor extends TypeDefinition{
         actorDetailsHashMap.put("firstname", firstname);
         actorDetailsHashMap.put("yearOfBirth", yearOfBirth);
 
-
-        JSONObject userDetails = new JSONObject(actorDetailsHashMap);
-        actorList.add(userDetails);
+        actorList.add(new JSONObject(actorDetailsHashMap));
 
         JSONFileManager.writeJSONArrayToFile(actorList, path);
     }

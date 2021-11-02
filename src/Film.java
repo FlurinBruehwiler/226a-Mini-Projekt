@@ -78,11 +78,12 @@ public class Film extends TypeDefinition{
         for(Rating rating: ratings){
             sum += rating.getStars();
         }
+
         return (float)sum / ratings.size();
     }
 
-    public Film(UUID _ID, String _name, String _releaseDate, String _description, ArrayList<Actor> _actors, ArrayList<Rating> _ratings){
-        ID = _ID ;
+    public Film(String _name, String _releaseDate, String _description, ArrayList<Actor> _actors, ArrayList<Rating> _ratings){
+        ID = UUID.randomUUID();
         name = _name ;
         releasedate = _releaseDate;
         description = _description;
@@ -117,8 +118,7 @@ public class Film extends TypeDefinition{
         }
         filmDetailsHashMap.put("ratings", UUIDsOfRatings.substring(1));
 
-        JSONObject userDetails = new JSONObject(filmDetailsHashMap);
-        filmList.add(userDetails);
+        filmList.add(new JSONObject(filmDetailsHashMap));
 
         JSONFileManager.writeJSONArrayToFile(filmList, path);
     }

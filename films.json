@@ -1,18 +1,1 @@
-[
-  {
-    "actors": "d74e0234-8ffd-4152-98a1-522fa4d6a00a,c57d21fd-d2aa-42df-87c4-34f9348c48ea",
-    "ratings": "a100a3d5-8f27-45fc-901b-e3c332b43419,26ee2e3e-b2ec-469d-81ba-b2f543827a08,e7bc7141-c9c6-413f-899e-a6e151c09887,bd562b9f-2ff2-44e5-8ec6-2c1130e87208",
-    "name": "Bond",
-    "description": "very gut",
-    "id": "9c3cddc2-e37c-449f-85a3-cd1dc88d437c",
-    "releasedate": "13.09.2004"
-  },
-  {
-    "actors": "d74e0234-8ffd-4152-98a1-522fa4d6a00a,c57d21fd-d2aa-42df-87c4-34f9348c48ea",
-    "ratings": "a100a3d5-8f27-45fc-901b-e3c332b43419,26ee2e3e-b2ec-469d-81ba-b2f543827a08,1a604966-dedb-4471-8c06-31bb29cc0285,2969c1db-7631-4c35-bc0a-141105d8a2c0",
-    "name": "The French dispatch",
-    "description": "very gut geil geil geil ",
-    "id": "5a71357c-6c25-447e-b0e4-a7f0a68001c4",
-    "releasedate": "13.09.2049832740324234"
-  }
-]
+[{"actors":"d74e0234-8ffd-4152-98a1-522fa4d6a00a,c57d21fd-d2aa-42df-87c4-34f9348c48ea","ratings":"a100a3d5-8f27-45fc-901b-e3c332b43419,26ee2e3e-b2ec-469d-81ba-b2f543827a08,1a604966-dedb-4471-8c06-31bb29cc0285,2969c1db-7631-4c35-bc0a-141105d8a2c0","name":"The French dispatch","description":"very gut geil geil geil ","id":"5a71357c-6c25-447e-b0e4-a7f0a68001c4","releasedate":"13.09.2049832740324234"},{"actors":"d74e0234-8ffd-4152-98a1-522fa4d6a00a,c57d21fd-d2aa-42df-87c4-34f9348c48ea","ratings":"a100a3d5-8f27-45fc-901b-e3c332b43419,26ee2e3e-b2ec-469d-81ba-b2f543827a08,e7bc7141-c9c6-413f-899e-a6e151c09887,bd562b9f-2ff2-44e5-8ec6-2c1130e87208,9a9d0183-a8aa-4cfa-b312-9777c74e33a3","name":"Bond","description":"very gut","id":"9c3cddc2-e37c-449f-85a3-cd1dc88d437c","releasedate":"13.09.2004"}]

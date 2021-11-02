@@ -8,12 +8,23 @@ public class Storage {
     public static ArrayList<Actor> actors = new ArrayList<>();
     public static ArrayList<Rating> ratings = new ArrayList<>();
     public static ArrayList<Film> films = new ArrayList<>();
+    public static ArrayList<User> users = new ArrayList<>();
 
     public static void ReadAllObjects(){
         ReadAllActors();
         ReadAllRatings();
         ReadAllFilms();
+        ReadAllUsers();
+    }
 
+    public static void ReadAllUsers(){
+        JSONArray userList = JSONFileManager.readJSONArrayFromFile("users.json");
+
+        userList.forEach(item -> {
+            JSONObject JSONUser = (JSONObject) item;
+            User newUser = new User(JSONUser);
+            users.add(newUser);
+        });
     }
 
     public static void ReadAllActors(){

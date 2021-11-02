@@ -32,8 +32,8 @@ public class Rating extends TypeDefinition{
         });
     }
 
-    public Rating(UUID _ID, int _stars, String _text){
-        ID = _ID ;
+    public Rating(int _stars, String _text){
+        ID = UUID.randomUUID();
         stars = _stars;
         text = _text;
     }
@@ -52,8 +52,7 @@ public class Rating extends TypeDefinition{
         ratingDetailsHashMap.put("stars", String.valueOf(stars));
         ratingDetailsHashMap.put("text", text);
 
-        JSONObject userDetails = new JSONObject(ratingDetailsHashMap);
-        ratingList.add(userDetails);
+        ratingList.add(new JSONObject(ratingDetailsHashMap));
 
         JSONFileManager.writeJSONArrayToFile(ratingList, path);
     }

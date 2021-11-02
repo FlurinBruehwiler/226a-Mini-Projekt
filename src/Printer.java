@@ -30,14 +30,14 @@ public class Printer {
     public static <T> void printObjects(ArrayList<T> typeDefinitions){
         typeDefinitions.forEach(td -> {
             if(td instanceof Rating){
+                System.out.println("--------------------");
                 printRating((Rating)td);
-                System.out.println("--------------------");
             }else if(td instanceof Actor){
+                System.out.println("--------------------");
                 printActor((Actor)td);
-                System.out.println("--------------------");
             }else if(td instanceof Film){
-                printFilm((Film)td);
                 System.out.println("--------------------");
+                printFilm((Film)td);
             }
         });
     }
