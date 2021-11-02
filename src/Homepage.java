@@ -27,10 +27,10 @@ public class Homepage {
 
             switch (filmMenu.toLowerCase(Locale.ROOT)){
                 case "0":
-                    Printer.printObjects(Storage.films.get(Integer.parseInt(filmInput)).actors);
+                    Printer.printObjects(Storage.films.get(Integer.parseInt(filmInput)).getActors());
                     break;
                 case "1":
-                    Printer.printObjects(Storage.films.get(Integer.parseInt(filmInput)).ratings);
+                    Printer.printObjects(Storage.films.get(Integer.parseInt(filmInput)).getRatings());
                     break;
                 case "2":
                     createRating(Storage.films.get(Integer.parseInt(filmInput)));
@@ -52,7 +52,7 @@ public class Homepage {
         String text = scanner2.nextLine();
         Rating newRating = new Rating(UUID.randomUUID(), stars, text);
         Storage.ratings.add(newRating);
-        film.ratings.add(newRating);
+        film.getRatings().add(newRating);
         newRating.saveToJson();
         film.saveToJson();
     }
@@ -60,7 +60,7 @@ public class Homepage {
     public static ArrayList<Film> getFilmsWithActor(Actor actor){
         ArrayList<Film> films = new ArrayList<>();
         for(Film film : Storage.films){
-            if(film.actors.contains(actor)) {
+            if(film.getActors().contains(actor)) {
                 films.add(film);
             }
         }

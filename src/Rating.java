@@ -4,11 +4,17 @@ import org.json.simple.JSONObject;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class Rating{
-    UUID ID;
-    int stars;
-    String text;
+public class Rating extends TypeDefinition{
+    private int stars;
+    private String text;
 
+    public int getStars(){
+        return stars;
+    }
+
+    public String getText(){
+        return text;
+    }
 
     public Rating(JSONObject rating){
         rating.forEach((key,value) -> {
@@ -38,6 +44,8 @@ public class Rating{
         JSONArray ratingList = new JSONArray();
 
         ratingList = JSONFileManager.readJSONArrayFromFile(path);
+
+        ratingList = removeTdFromList(ratingList, ID);
 
         HashMap<String,String> ratingDetailsHashMap = new HashMap<String,String>();
         ratingDetailsHashMap.put("id", ID.toString());

@@ -3,26 +3,26 @@ import java.util.ArrayList;
 public class Printer {
     //print single objects
     public static void printFilm(Film film){
-        System.out.println("Name: " + film.name);
-        System.out.println("Release Date: " + film.releasadate);
-        System.out.println("Description: " + film.description);
+        System.out.println("Name: " + film.getName());
+        System.out.println("Release Date: " + film.getReleasadate());
+        System.out.println("Description: " + film.getDescription());
         System.out.print("Actors: " );
 
-        Printer.printObjectNames(film.actors, false);
+        Printer.printObjectNames(film.getActors(), false);
 
         System.out.println("Average Rating: " + film.getAverageRating());
     }
 
     public static void printRating(Rating rating){
-        System.out.println("Stars: " + rating.stars);
-        if(rating.text != ""){
-            System.out.println(rating.text);
+        System.out.println("Stars: " + rating.getStars());
+        if(rating.getText() != ""){
+            System.out.println(rating.getText());
         }
     }
 
     public static void printActor(Actor actor){
-        System.out.println(actor.firstname + " " + actor.name);
-        System.out.println("Year of Birth " + actor.yearOfBirth);
+        System.out.println(actor.getFirstname() + " " + actor.getName());
+        System.out.println("Year of Birth " + actor.getYearOfBirth());
         printObjectNames(Homepage.getFilmsWithActor(actor), false);
     }
 
@@ -46,18 +46,18 @@ public class Printer {
         if(inList){
             for(int i = 0; i < typeDefinitions.size(); i++){
                 if(typeDefinitions.get(i) instanceof Actor actor){
-                    System.out.println(i + ": " + actor.firstname + " " + actor.name);
+                    System.out.println(i + ": " + actor.getFirstname() + " " + actor.getName());
                 }else if(typeDefinitions.get(i) instanceof Film film){
-                    System.out.println(i + ": " + film.name);
+                    System.out.println(i + ": " + film.getName());
                 }
             }
         }else{
             String output = "";
             for(T td : typeDefinitions){
                 if(td instanceof Actor actor){
-                    output += ", " + actor.firstname + " " + actor.name;
+                    output += ", " + actor.getFirstname() + " " + actor.getName();
                 }else if(td instanceof Film film){
-                    output += ", " + film.name;
+                    output += ", " + film.getName();
                 }
             }
 

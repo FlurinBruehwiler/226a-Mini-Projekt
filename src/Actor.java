@@ -4,11 +4,22 @@ import org.json.simple.JSONObject;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class Actor{
-    UUID ID;
-    String name;
-    String firstname;
-    String yearOfBirth;
+public class Actor extends TypeDefinition{
+    private String name;
+    private String firstname;
+    private String yearOfBirth;
+
+    public String getName(){
+        return name;
+    }
+
+    public String getFirstname(){
+        return firstname;
+    }
+
+    public String getYearOfBirth(){
+        return yearOfBirth;
+    }
 
     public Actor(JSONObject actor){
         actor.forEach((key,value) -> {
@@ -43,6 +54,8 @@ public class Actor{
 
 
         actorList = JSONFileManager.readJSONArrayFromFile(path);
+
+        actorList = removeTdFromList(actorList, ID);
 
         HashMap<String,String> actorDetailsHashMap = new HashMap<String,String>();
         actorDetailsHashMap.put("id", ID.toString());

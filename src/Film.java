@@ -6,16 +6,31 @@ import java.util.HashMap;
 import java.util.UUID;
 
 public class Film extends TypeDefinition{
+    private String name;
+    private String releasedate;
+    private String description;
+    private ArrayList<Actor> actors = new ArrayList<>();
+    private ArrayList<Rating> ratings =  new ArrayList<>();
 
-    UUID ID;
-    String name;
-    String releasadate;
-    String description;
-    ArrayList<Actor> actors = new ArrayList<>();
-    ArrayList<Rating> ratings =  new ArrayList<>();
+    public String getName(){
+        return name;
+    }
 
-    float avgrating;
+    public String getReleasadate(){
+        return releasedate;
+    }
 
+    public String getDescription(){
+        return description;
+    }
+
+    public ArrayList<Actor> getActors(){
+        return actors;
+    }
+
+    public ArrayList<Rating> getRatings(){
+        return ratings;
+    }
 
     public Film(JSONObject film){
         film.forEach((k,v) -> {
@@ -27,7 +42,7 @@ public class Film extends TypeDefinition{
                     name = v.toString();
                     break;
                 case "releasedate":
-                    releasadate = v.toString();
+                    releasedate = v.toString();
                     break;
                 case "description":
                     description = v.toString();
@@ -61,7 +76,7 @@ public class Film extends TypeDefinition{
     public float getAverageRating(){
         int sum = 0;
         for(Rating rating: ratings){
-            sum += rating.stars;
+            sum += rating.getStars();
         }
         return (float)sum / ratings.size();
     }
@@ -69,7 +84,7 @@ public class Film extends TypeDefinition{
     public Film(UUID _ID, String _name, String _releaseDate, String _description, ArrayList<Actor> _actors, ArrayList<Rating> _ratings){
         ID = _ID ;
         name = _name ;
-        releasadate = _releaseDate;
+        releasedate = _releaseDate;
         description = _description;
         actors = _actors;
         ratings = _ratings;
@@ -87,7 +102,7 @@ public class Film extends TypeDefinition{
         HashMap<String,String> filmDetailsHashMap = new HashMap<String,String>();
         filmDetailsHashMap.put("id", ID.toString());
         filmDetailsHashMap.put("name", name);
-        filmDetailsHashMap.put("releasedate", releasadate);
+        filmDetailsHashMap.put("releasedate", releasedate);
         filmDetailsHashMap.put("description", description);
 
         String UUIDsOfActors = "";
