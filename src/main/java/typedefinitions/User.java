@@ -1,3 +1,6 @@
+package main.java.typedefinitions;
+
+import main.java.JSONFileManager;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 

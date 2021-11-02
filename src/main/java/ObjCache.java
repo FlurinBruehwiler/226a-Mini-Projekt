@@ -1,10 +1,16 @@
+package main.java;
+
+import main.java.typedefinitions.Actor;
+import main.java.typedefinitions.Film;
+import main.java.typedefinitions.Rating;
+import main.java.typedefinitions.User;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class Storage {
+public class ObjCache {
     public static ArrayList<Actor> actors = new ArrayList<>();
     public static ArrayList<Rating> ratings = new ArrayList<>();
     public static ArrayList<Film> films = new ArrayList<>();

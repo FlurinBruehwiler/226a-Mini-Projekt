@@ -1,11 +1,14 @@
-import org.json.simple.JSONObject;
+package main.java.ui;
+
+import main.java.ObjCache;
+import main.java.typedefinitions.User;
 
 import java.util.Scanner;
 
 public class Authentication {
     public static boolean authentificate(){
         while(true){
-            System.out.println("0: Login");
+            System.out.println("0: main.java.Login");
             System.out.println("1: Register");
             Scanner scanner = new Scanner(System.in);
             int loginOrRegister = scanner.nextInt();
@@ -29,11 +32,11 @@ public class Authentication {
             if(input[1].equals(input[2])){
                 if(!userAlreadyExists(input[0])){
                     User newUser = new User(input[0], input[1]);
-                    Storage.users.add(newUser);
+                    ObjCache.users.add(newUser);
                     newUser.saveToJson();
                     return true;
                 }
-                System.out.println("User with username " + input[0] + " does already exist");
+                System.out.println("main.java.typedefinitions.User with username " + input[0] + " does already exist");
             }else{
                 System.out.println("Passwords do not match");
             }
@@ -41,7 +44,7 @@ public class Authentication {
     }
 
     private static boolean userAlreadyExists(String username){
-        for (User user : Storage.users){
+        for (User user : ObjCache.users){
             if(user.getUsername().equals(username)){
                 return true;
             }
@@ -52,11 +55,11 @@ public class Authentication {
     private static boolean login(){
         while(true){
             String[] input = getLoginInput();
-            for(User user : Storage.users){
+            for(User user : ObjCache.users){
                 if(user.getUsername().equals(input[0])){
                     if(user.getPassword().equals(input[1])){
                         System.out.println("-------------------------");
-                        System.out.println("Login successful");
+                        System.out.println("main.java.Login successful");
                         return true;
                     }
                 }
@@ -92,7 +95,7 @@ public class Authentication {
 
     public static String[] getLoginInput(){
         System.out.println("--------------------------");
-        System.out.println("Login");
+        System.out.println("main.java.Login");
 
         String[] output = new String[2];
 

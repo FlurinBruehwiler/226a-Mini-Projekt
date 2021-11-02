@@ -1,3 +1,7 @@
+package main.java.typedefinitions;
+
+import main.java.JSONFileManager;
+import main.java.ObjCache;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -5,7 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class Film extends TypeDefinition{
+public class Film extends TypeDefinition {
     private String name;
     private String releasedate;
     private String description;
@@ -50,7 +54,7 @@ public class Film extends TypeDefinition{
                 case "actors":
                     String[] actorsID = v.toString().split(",");
                     for (String actorId:actorsID) {
-                        Actor foundActor = Storage.getActorbyId(UUID.fromString(actorId));
+                        Actor foundActor = ObjCache.getActorbyId(UUID.fromString(actorId));
                         if(foundActor != null){
                             actors.add(foundActor);
                         }else{
@@ -61,7 +65,7 @@ public class Film extends TypeDefinition{
                 case "ratings":
                     String[] ratingsID = v.toString().split(",");
                     for (String ratingId:ratingsID) {
-                        Rating foundRating = Storage.getRatingbyId(UUID.fromString(ratingId));
+                        Rating foundRating = ObjCache.getRatingbyId(UUID.fromString(ratingId));
                         if(foundRating != null){
                             ratings.add(foundRating);
                         } else{

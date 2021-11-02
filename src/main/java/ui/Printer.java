@@ -1,3 +1,9 @@
+package main.java.ui;
+
+import main.java.typedefinitions.Actor;
+import main.java.typedefinitions.Film;
+import main.java.typedefinitions.Rating;
+
 import java.util.ArrayList;
 
 public class Printer {
@@ -10,7 +16,7 @@ public class Printer {
 
         Printer.printObjectNames(film.getActors(), false);
 
-        System.out.println("Average Rating: " + film.getAverageRating());
+        System.out.println("Average main.java.typedefinitions.Rating: " + film.getAverageRating());
     }
 
     public static void printRating(Rating rating){

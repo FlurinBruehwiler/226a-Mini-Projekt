@@ -1,10 +1,13 @@
+package main.java.typedefinitions;
+
+import main.java.JSONFileManager;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.util.HashMap;
 import java.util.UUID;
 
-public class Rating extends TypeDefinition{
+public class Rating extends TypeDefinition {
     private int stars;
     private String text;
 

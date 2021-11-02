@@ -1,10 +1,13 @@
+package main.java.typedefinitions;
+
+import main.java.JSONFileManager;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.util.HashMap;
 import java.util.UUID;
 
-public class Actor extends TypeDefinition{
+public class Actor extends TypeDefinition {
     private String name;
     private String firstname;
     private String yearOfBirth;
