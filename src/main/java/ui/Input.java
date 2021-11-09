@@ -1,9 +1,12 @@
-package main.java;
+package main.java.ui;
+
+import main.java.InvalidInputException;
+import main.java.ObjCache;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class ValidateInput {
+public class Input {
 
     /**
      * Description: Gets the input when the user chooses a film to inspect

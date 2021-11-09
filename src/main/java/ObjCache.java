@@ -19,17 +19,17 @@ public class ObjCache {
     /**
      * Description: Reads all objects from the JSON files and creates the objects
      */
-    public static void ReadAllObjects(){
-        ReadAllActors();
-        ReadAllRatings();
+    public static void readAllObjects(){
+        readAllActors();
+        readAllRatings();
         ReadAllFilms();
-        ReadAllUsers();
+        readAllUsers();
     }
 
     /**
      *  Description: Reads all users from the JSON file and creates the users
      */
-    public static void ReadAllUsers(){
+    public static void readAllUsers(){
         JSONArray userList = JSONFileManager.readJSONArrayFromFile("JSONStorage/users.json");
 
         userList.forEach(item -> {
@@ -42,7 +42,7 @@ public class ObjCache {
     /**
      *  Description: Reads all actors from the JSON file and creates the actors
      */
-    public static void ReadAllActors(){
+    public static void readAllActors(){
         JSONArray actorList = JSONFileManager.readJSONArrayFromFile("JSONStorage/actors.json");
 
         actorList.forEach(item -> {
@@ -55,7 +55,7 @@ public class ObjCache {
     /**
      *  Description: Reads all ratings from the JSON file and creates the ratings
      */
-    public static void ReadAllRatings(){
+    public static void readAllRatings(){
         JSONArray ratingList = JSONFileManager.readJSONArrayFromFile("JSONStorage/ratings.json");
 
         ratingList.forEach(item -> {

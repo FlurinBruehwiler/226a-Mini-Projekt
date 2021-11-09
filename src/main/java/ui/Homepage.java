@@ -1,7 +1,6 @@
 package main.java.ui;
 
 import main.java.ObjCache;
-import main.java.ValidateInput;
 import main.java.typedefinitions.Actor;
 import main.java.typedefinitions.Film;
 import main.java.typedefinitions.Rating;
@@ -23,7 +22,7 @@ public class Homepage {
             Printer.printObjectNames(ObjCache.films, true);
 
             //Choose main.java.typedefinitions.Film
-            int filmInput = ValidateInput.getFilmChooserInput();
+            int filmInput = Input.getFilmChooserInput();
 
             if (filmInput == -1) {
                 System.exit(0);
@@ -42,7 +41,7 @@ public class Homepage {
             System.out.println("2: Create rating");
             System.out.println("3: Go back to film list");
 
-            int filmMenu = ValidateInput.getFilmMenuInput();
+            int filmMenu = Input.getFilmMenuInput();
 
             switch (filmMenu) {
                 case 0:
@@ -68,7 +67,7 @@ public class Homepage {
 
         System.out.println("--------------------------");
         System.out.println("Create rating");
-        int stars = ValidateInput.getStarsInput();
+        int stars = Input.getStarsInput();
 
         System.out.print("Comment (optional): ");
         Scanner scanner = new Scanner(System.in);
